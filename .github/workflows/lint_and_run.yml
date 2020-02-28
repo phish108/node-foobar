@@ -50,6 +50,8 @@ jobs:
         - 12
     steps:
       - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with:
@@ -63,7 +65,9 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           DRY_RUN: true
-      - run: echo ${{ steps.tagger.outputs.tag }} ${{ steps.tagger.outputs.new_tag }}
+      - run: |
+          whoami
+          echo ${{ steps.tagger.outputs.tag }} ${{ steps.tagger.outputs.new_tag }}
       - run: npm --no-git-tag-version --allow-same-version version ${{ steps.tagger.outputs.new_tag }}
       - run: git commit -m "version bump to $NPM_VERSION" -a
         env: 
