@@ -61,4 +61,4 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           DRY_RUN: true
       - run: echo ${{ steps.tagger.outputs.tag }} ${{ steps.tagger.outputs.new_tag }}
-      - run: npm version ${{ steps.tagger.outputs.new_tag }}
+      - run: npm --no-git-tag-version version ${{ steps.tagger.outputs.new_tag }}
