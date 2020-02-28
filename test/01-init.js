@@ -12,8 +12,8 @@ describe( "sanitize tool names", function() {
         expect(result).to.equal("hello world");
     });
 
-    it("greet phish", () => {
-        result = greeting("phish");
-        expect(result).to.equal("hello phish");
-    })
+    // it("greet phish", () => {
+    //     result = greeting("phish");
+    //     expect(result).to.equal("hello phish");
+    // })
 });
