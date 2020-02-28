@@ -95,17 +95,21 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
 
-#  publish-gpr:
-#    needs: release
-#    runs-on: ubuntu-latest
-#    steps:
-#      - uses: actions/checkout@v2
-#      - uses: actions/setup-node@v1
-#        with:
-#          node-version: 12
-#          registry-url: https://npm.pkg.github.com/phish108/
-#          scope: '@phish108'
-#      - run: npm ci
-#      - run: npm publish
-#        env:
-#          NODE_AUTH_TOKEN: ${{github.token}}
+  publish-gpr:
+    needs: release
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+          registry-url: https://npm.pkg.github.com/
+          scope: '@phish108'
+          always-auth: 'false'
+      - run: npm ci
+      - run: | 
+          cat $RUNNER_TEMP/.npmrc
+          cat .npmrc
+      - run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{github.token}}
