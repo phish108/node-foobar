@@ -103,7 +103,7 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 12
-          registry-url: https://npm.pkg.github.com/
+          registry-url: https://npm.pkg.github.com/phish108/
           scope: '@phish108'
       - run: npm ci
       - run: npm publish
