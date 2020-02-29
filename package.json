@@ -1,6 +1,6 @@
 {
   "name": "node-foobar",
-  "version": "0.2.15",
+  "version": "0.2.16",
   "description": "A test project for github actions",
   "main": "index.js",
   "scripts": {
