@@ -111,6 +111,6 @@ jobs:
           echo ${RUNNER_TEMP}
           cat ${RUNNER_TEMP}/.npmrc
           npm config list
-      - run: npm --userconfig ${RUNNER_TEMP}/.npmrc publish
+      - run: npm publish
         env:
-          NODE_AUTH_TOKEN: ${{github.token}}
+          NODE_AUTH_TOKEN: ${{github.GITHUB_TOKEN}}
