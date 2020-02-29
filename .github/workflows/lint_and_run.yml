@@ -91,7 +91,7 @@ jobs:
           node-version: 12
           registry-url: https://registry.npmjs.org/
       - run: npm ci
-      - run: npm publish
+      - run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
 
@@ -106,8 +106,8 @@ jobs:
           registry-url: https://npm.pkg.github.com/
       - run: npm ci
       - run: | 
-          echo >> ${RUNNER_TEMP}/.npmrc
-          echo registry=https://npm.pkg.github.com/phish108 >> ${RUNNER_TEMP}/.npmrc
+          # echo >> ${RUNNER_TEMP}/.npmrc
+          # echo registry=https://npm.pkg.github.com/phish108 >> ${RUNNER_TEMP}/.npmrc
           echo ${RUNNER_TEMP}
           cat ${RUNNER_TEMP}/.npmrc
           echo
