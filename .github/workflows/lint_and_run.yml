@@ -60,7 +60,7 @@ jobs:
       - run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-      - uses: phish108/github-tag-action@p1.17.4
+      - uses: anothrNick/github-tag-action@1.18.0
         id: tagger
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -76,7 +76,7 @@ jobs:
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-      - uses: phish108/github-tag-action@p1.17.4
+      - uses: anothrNick/github-tag-action@1.18.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           WITH_V: true
