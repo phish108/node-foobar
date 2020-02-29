@@ -105,12 +105,12 @@ jobs:
           node-version: 13
           registry-url: https://npm.pkg.github.com/
           scope: '@phish108'
-          always-auth: 'false'
+          always-auth: 'true'
       - run: npm ci
       - run: | 
           echo ${RUNNER_TEMP}
           cat ${RUNNER_TEMP}/.npmrc
           npm config list
-      - run: npm publish
+      - run: npm --userconfig ${RUNNER_TEMP}/.npmrc publish
         env:
           NODE_AUTH_TOKEN: ${{github.token}}
