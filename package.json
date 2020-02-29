@@ -1,5 +1,5 @@
 {
-  "name": "@phish108/node-foobar",
+  "name": "node-foobar",
   "version": "0.3.1",
   "description": "A test project for github actions",
   "main": "index.js",
