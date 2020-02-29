@@ -106,8 +106,11 @@ jobs:
           registry-url: https://npm.pkg.github.com/
       - run: npm ci
       - run: | 
+          echo >> ${RUNNER_TEMP}/.npmrc
+          echo registry=https://npm.pkg.github.com/phish108 >> ${RUNNER_TEMP}/.npmrc
           echo ${RUNNER_TEMP}
           cat ${RUNNER_TEMP}/.npmrc
+          echo
           npm config list
       - run: npm publish
         env:
