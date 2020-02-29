@@ -108,7 +108,8 @@ jobs:
           always-auth: 'false'
       - run: npm ci
       - run: | 
-          cat $RUNNER_TEMP/.npmrc
+          echo ${RUNNER_TEMP}
+          cat ${RUNNER_TEMP}/.npmrc
           npm config list
       - run: npm publish
         env:
