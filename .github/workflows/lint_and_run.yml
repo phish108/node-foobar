@@ -94,24 +94,3 @@ jobs:
       - run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
-
-  publish-gpr:
-    needs: release
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@master
-        with:
-          node-version: 12
-          registry-url: https://npm.pkg.github.com/
-      - run: npm ci
-      - run: | 
-          # echo >> ${RUNNER_TEMP}/.npmrc
-          # echo registry=https://npm.pkg.github.com/phish108 >> ${RUNNER_TEMP}/.npmrc
-          echo ${RUNNER_TEMP}
-          cat ${RUNNER_TEMP}/.npmrc
-          echo
-          npm config list
-      - run: npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{github.GITHUB_TOKEN}}
