@@ -51,11 +51,13 @@ jobs:
         - 12.x
 
     steps:
-    - run: FOOBAR="minor"
+    - id: foobar1 
+      run: echo ::set-output name=patch::minor
       if: github.actor == 'phish108'
-    - run: FOOBAR="patch"
-      if: github.actor == 'dependabot' || github.actor == 'dependabot-preview'
-    - run: echo $FOOBAR
+    - id: foobar2
+      run: echo ::set-output name=new_tag::patch
+      if: starts_with(github.actor, 'dependabot')
+    - run: echo ${{ steps.foobar1.outputs.release || steps.foobar2.outputs.release }}
     
   # release: 
   #   needs: build
