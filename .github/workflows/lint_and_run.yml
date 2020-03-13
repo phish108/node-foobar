@@ -21,7 +21,7 @@ jobs:
   #   - run: npm run lint
     
   build:
-    needs: lint
+    # needs: lint
     runs-on: ubuntu-latest
 
     strategy:
