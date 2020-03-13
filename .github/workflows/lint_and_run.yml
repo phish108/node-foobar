@@ -51,10 +51,10 @@ jobs:
 
     steps:
     - id: foobar1 
-      run: echo ::set-output name=patch::minor
+      run: echo ::set-output name=release::minor
       if: github.actor == 'phish108'
     - id: foobar2
-      run: echo ::set-output name=new_tag::patch
+      run: echo ::set-output name=release::patch
       if: startsWith(github.actor, 'dependabot')
     - run: echo ${{ steps.foobar1.outputs.release || steps.foobar2.outputs.release }}
     
