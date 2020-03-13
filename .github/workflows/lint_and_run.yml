@@ -39,24 +39,6 @@ jobs:
     - run: npm test
       env:
         CI: true
-        
-  actor_check:
-    needs: build
-    runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: 
-        - 12.x
-
-    steps:
-    - id: foobar1 
-      run: echo ::set-output name=release::minor
-      if: github.actor == 'phish108'
-    - id: foobar2
-      run: echo ::set-output name=release::patch
-      if: startsWith(github.actor, 'dependabot')
-    - run: echo ${{ steps.foobar1.outputs.release || steps.foobar2.outputs.release }}
 
   merge: 
     needs: build
