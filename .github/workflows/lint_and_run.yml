@@ -3,22 +3,22 @@ name: Integration
 on: [push]
 
 jobs:
-  lint:
-    runs-on: ubuntu-latest
+  # lint:
+  #   runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: 
-        - 12
+  #   strategy:
+  #     matrix:
+  #       node-version: 
+  #       - 12
 
-    steps:
-    - uses: actions/checkout@v2
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{ matrix.node-version }}
-    - run: npm ci
-    - run: npm run lint
+  #   steps:
+  #   - uses: actions/checkout@v2
+  #   - name: Use Node.js ${{ matrix.node-version }}
+  #     uses: actions/setup-node@v1
+  #     with:
+  #       node-version: ${{ matrix.node-version }}
+  #   - run: npm ci
+  #   - run: npm run lint
     
   build:
     needs: lint
@@ -28,7 +28,6 @@ jobs:
       matrix:
         node-version: 
         - 12.x
-        - 13.x
 
     steps:
     - uses: actions/checkout@v2
@@ -56,7 +55,7 @@ jobs:
       if: github.actor == 'phish108'
     - id: foobar2
       run: echo ::set-output name=new_tag::patch
-      if: starts_with(github.actor, 'dependabot')
+      if: startsWith(github.actor, 'dependabot')
     - run: echo ${{ steps.foobar1.outputs.release || steps.foobar2.outputs.release }}
     
   # release: 
