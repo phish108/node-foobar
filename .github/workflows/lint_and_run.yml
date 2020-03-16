@@ -44,7 +44,7 @@ jobs:
       with:
         github-token: ${{ secrets.GITHUB_TOKEN}}
         dry-run: "false"
-        branch: "foobar"
+        branch: "master"
 
   # merge: 
   #   needs: build
