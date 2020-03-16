@@ -43,7 +43,7 @@ jobs:
     - uses: phish108/jstest-action@master
       with:
         github-token: ${{ secrets.GITHUB_TOKEN}}
-        dry-run: "false"
+        with-v: "true"
         branch: "master"
 
   # merge: 
