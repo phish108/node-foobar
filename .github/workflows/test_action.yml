@@ -1,0 +1,17 @@
+name: Integration
+
+on: 
+  push:
+    branches-ignore:
+      - actiontest
+
+jobs:  
+  build:
+    # needs: lint
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: phish108/jstest-action@scan_messages
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN}}
+        with-v: "true"
