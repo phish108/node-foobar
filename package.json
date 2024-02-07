@@ -3,6 +3,7 @@
   "version": "0.5.0",
   "description": "A test project for github actions",
   "main": "index.js",
+  "mode": "module",
   "scripts": {
     "test": "mocha",
     "lint": "eslint index.js"
