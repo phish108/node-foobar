@@ -1,0 +1,24 @@
+name: Issue to Markdown Test
+
+on: 
+  issues:
+    types:
+      - opened
+      - labeled
+
+jobs:  
+  build:
+    # needs: lint
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    - uses: phish108/issue-to-page@main
+      with:
+        label: 'documentation'
+        target-folder: 'docs'
+
+    - name: Commit files
+      uses: stefanzweifel/git-auto-commit-action@v5
+      with:
+        commit_message: Add documentation from issue
