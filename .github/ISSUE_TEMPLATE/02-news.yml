@@ -1,0 +1,47 @@
+---
+name: News entry
+description: Use this form to add an article or blog post to the news section.
+title: "[Title of the news entry]"
+projects: 
+  - cotedi-project/1
+labels: 
+  - 📢 news
+body:
+  - type: textarea
+    attributes:
+      label: Announcement
+      placeholder: |
+        Please place the announcement here. It will be added as content of the news entry.
+  - type: textarea 
+    id: heroimage
+    attributes:
+      label: Banner Image
+      description: The image that will be displayed on top of the news page
+
+  - type: input
+    id: url
+    attributes:
+      label: External Link
+      description: The link to the source (optional)
+  - type: dropdown
+    id: language
+    attributes:
+      label: Language
+      description: The language of the news entry
+      options:
+        - Dutch
+        - English
+        - German
+        - Portuguese
+        - Spanish
+        - Swedish
+      default: 1
+  - type: textarea
+    id: partners
+    attributes:
+      label: Project partners
+      description: Add all project partners involved in the event
+      placeholder: |
+        Leave empty if it is just you (or your team).
+        Use a list for each partner involved
+--- 
