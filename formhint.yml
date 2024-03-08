@@ -1,0 +1,22 @@
+extra:
+  tags: 
+    - news
+name: news
+prefix: "[News] "
+body:
+- label: Announcement
+  id: body
+
+- label: Banner Image
+  id: heroimage
+  type: [image]
+
+- id: external_url
+  label: External Link
+
+- id: language
+  label: Language
+
+- type: list
+  id: partners
+  label: Project partners

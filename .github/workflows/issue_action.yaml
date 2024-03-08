@@ -18,6 +18,7 @@ jobs:
         label: 'documentation'
         target-folder: 'docs'
         template: _templates/doc_page.njk
+        formhints: formhint.yml
 
     - name: Commit files
       uses: stefanzweifel/git-auto-commit-action@v5
