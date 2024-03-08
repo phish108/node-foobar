@@ -9,7 +9,7 @@ body:
 
 - label: Banner Image
   id: heroimage
-  type: [image]
+  type: "[image]"
 
 - id: external_url
   label: External Link
