@@ -18,7 +18,6 @@ jobs:
         label: '📢 news'
         target-folder: 'docs'
         template: _templates/doc_page.njk
-        
         formhints: formhint.yml
 
     - name: Commit files
