@@ -2,8 +2,7 @@
 title: {{ title }}
 author: {{ author }}
 date: {{ date }}
-hero:
-{% for image in heroimage %}
+hero: {% for image in heroimage %}
 - {{ image.url }}
 {% endfor %}
 ---
