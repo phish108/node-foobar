@@ -15,9 +15,10 @@ jobs:
     - uses: actions/checkout@v4
     - uses: phish108/issue-to-page@main
       with:
-        label: 'documentation'
+        label: '📢 news'
         target-folder: 'docs'
         template: _templates/doc_page.njk
+        
         formhints: formhint.yml
 
     - name: Commit files
